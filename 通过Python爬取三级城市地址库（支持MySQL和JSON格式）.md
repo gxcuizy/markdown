@@ -4,7 +4,7 @@ date: 2018-08-27 10:09:29
 tags: [Python]
 ---
 
-[Python][page_img_url]
+![Python][page_img_url]
 
 ### 数据来源
 
