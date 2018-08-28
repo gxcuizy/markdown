@@ -393,6 +393,9 @@ if __name__ == '__main__':
     ticket.start_brush()
 ```
 
+另外，该脚本，我也放到了GitHub上面，有兴趣的可以前往查看。  
+源码地址：[https://github.com/gxcuizy/Python/tree/master/12306qiangpiao][qiangpiao_url]
+
   [page_img_url]: https://images.unsplash.com/photo-1517940539453-517b8afbe85e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8efe33fb334f99f195bc9a13de4e8735&auto=format&fit=crop&w=500&q=60
   [juejin_piao_url]: https://juejin.im/post/5b116504f265da6e0636cbc2
   [sf_piao_url]: https://segmentfault.com/a/1190000015136244
@@ -401,3 +404,4 @@ if __name__ == '__main__':
   [3]: https://image-static.segmentfault.com/394/808/3948089187-5b11019115486_articlex
   [4]: https://image-static.segmentfault.com/374/287/3742879033-5b1101d53c77f_articlex
   [5]: http://www.ihuyi.com/
+  [qiangpiao_url]: https://github.com/gxcuizy/Python/tree/master/12306qiangpiao
