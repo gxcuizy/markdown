@@ -1,12 +1,26 @@
-**Git是什么？**
+---
+title: 开发必备之Git常用基础命令
+date: 2018-08-29 11:40:56
+tags: [Git]
+---
+
+![Git图标][page_img_url]
+
+### 前言
+
+这个Git常用命令的文章，之前在[掘金][juejin_git_url]和[SegmentFault][sf_git_url]都有发不过，现在想整理到个人博客中，分享给大家，所以，才在这里重新发布。如有问题，请给我留言沟通，谢谢！
+
+### Git是什么？
 
 Git是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个免费、开源的版本控制软件，用于敏捷高效地处理任何或小或大的项目，可以有效、高速的处理从不同的项目版本管理。夸一下说：Git是目前世界上最先进的分布式版本控制系统（PS：Git不是GitHub哦）。
 
-**为什么要说Git命令行？**
+<!-- more -->
+
+### 为什么要说Git命令行？
 
 在我们日常工作中，经常会用到Git操作。但是对于新人来讲，刚上来对Git很陌生，操作起来也很懵逼。本篇文章主要针对刚开始接触Git的新人，掌握常用的一些命令，足够日常开发使用。
 
-**Git命令：**
+### Git命令：
 
 \# 首先，需要远程克隆一个项目
 
@@ -56,4 +70,10 @@ $ git reflog [param]
 
 $ git push origin HEAD:[branch-name]
 
+### 结束语
+
 如有说的不正确的地方，请指出，相互交流、学习。
+
+[page_img_url]: https://pic1.zhimg.com/v2-042664999475fd8cc3672db6567e2e53_1200x500.jpg
+[juejin_git_url]: https://juejin.im/post/5b136e31e51d4506a81b4952
+[sf_git_url]: https://segmentfault.com/a/1190000015150907
