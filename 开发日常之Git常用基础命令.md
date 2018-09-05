@@ -74,6 +74,6 @@ $ git push origin HEAD:[branch-name]
 
 如有说的不正确的地方，请指出，相互交流、学习。
 
-[page_img_url]: https://pic1.zhimg.com/v2-042664999475fd8cc3672db6567e2e53_1200x500.jpg
+[page_img_url]: https://images.pexels.com/photos/1181253/pexels-photo-1181253.jpeg
 [juejin_git_url]: https://juejin.im/post/5b136e31e51d4506a81b4952
 [sf_git_url]: https://segmentfault.com/a/1190000015150907
