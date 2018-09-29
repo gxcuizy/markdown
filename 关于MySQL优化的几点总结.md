@@ -1,7 +1,7 @@
 ---
 title: 关于MySQL优化的几点总结
 date: 2018-09-21 17:06:16
-tags: [mysql, 优化]
+tags: [MySQL, 优化]
 ---
 
 ![page_img_url](https://farm8.staticflickr.com/7197/6869002065_4a6ab2f879_b.jpg)

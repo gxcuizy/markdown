@@ -1,7 +1,7 @@
 ---
 title: Python通过跳板机连接远程MySQL
 date: 2018-08-10 10:35:09
-tags: [python, mysql]
+tags: [Python, MySQL]
 ---
 
 ### 工具直接跳板机连接远程MySQL数据库

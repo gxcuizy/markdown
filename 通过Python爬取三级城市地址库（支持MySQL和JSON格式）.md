@@ -1,7 +1,7 @@
 ---
 title: 通过Python爬取国家统计局省市区三级地址库（支持MySQL和JSON格式）
 date: 2018-08-27 10:09:29
-tags: [Python]
+tags: [Python, MySQL, JSON]
 ---
 
 ![Python][page_img_url]
