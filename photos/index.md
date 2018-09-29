@@ -6,7 +6,7 @@ copyright:
     disable: true
 ---
 {% gp 9-7 %}
-![初次抵达北京](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2015-08-09.jpg "初次抵达北京（2015-08-09")
+![初次抵达北京](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2015-08-09.jpg "初次抵达北京（2015-08-09）")
 ![回龙观地铁站](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2015-11-23.jpg "回龙观地铁站（2015-11-23）")
 ![实习公司园区](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2015-11-24.jpg "实习公司园区（2015-11-24）")
 ![上班路上的雾霾](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2015-12-01.jpg "上班路上的雾霾（2015-12-01）")
