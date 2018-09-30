@@ -37,17 +37,24 @@ copyright:
 ![平谷徒步之行](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2017-04-01.jpg "平谷徒步之行（2017-04-01）")
 ![欢乐谷游玩](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2017-04-15.jpg "欢乐谷游玩（2017-04-15）")
 ![清华园](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2017-04-30.jpg "清华园（2017-04-30）")
+![颐和园一角](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2017-04-30-01.jpg "颐和园一角（2017-04-30）")
 ![周末加个餐](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2017-06-11.jpg "周末加个餐（2017-06-11）")
-![青龙峡蹦极](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2017-09-09.jpg "青龙峡蹦极（2017-09-09）")
 {% endgp %}
 
 {% gp 9-7 %}
+![后海公园](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2017-08-05.jpg "后海公园（2017-08-05）")
+![青龙峡蹦极](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2017-09-09.jpg "青龙峡蹦极（2017-09-09）")
 ![天坛之行](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2017-10-04.jpg "天坛之行（2017-10-04）")
 ![北京动物园](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2017-10-06.jpg "北京动物园（2017-10-06）")
 ![几个屌丝](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2017-11-26.jpg "几个屌丝（2017-11-26）")
 ![公司年会现场](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2018-01-26.jpg "公司年会现场（2018-01-26）")
 ![天通苑北日常](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2018-03-12.jpg "天通苑北日常（2018-03-12）")
+![十里堡远望](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2018-07-15.jpg "十里堡远望（2018-07-15）")
 ![长城回望](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2018-08-18.jpg "长城回望（2018-08-18）")
+{% endgp %}
+
+{% gp 9-7 %}
+![毛主席纪念馆](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2018-08-19.jpg "毛主席纪念馆（2018-08-19）")
 {% endgp %}
 
 *****************************************************
