@@ -1,17 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# coding=utf-8
-from PIL import Image  # 需要pillow库
+from PIL import Image
 import os
 import glob
 from PIL import ImageFile
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True
-in_dir = os.getcwd()  # 当前目录
-out_dir = in_dir + ' mini'  # 转换后图片目录
-# percent = 0.4#缩放比例
-percent = input('请输入缩放比例：')
+# 当前目录
+in_dir = os.getcwd()
+# 转换后图片目录
+out_dir = in_dir + ' mini'
+# 缩放比例
+percent = 0.4
 percent = float(percent)
 if not os.path.exists(out_dir):
     os.mkdir(out_dir)
