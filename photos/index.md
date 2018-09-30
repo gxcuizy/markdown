@@ -49,3 +49,7 @@ copyright:
 ![天通苑北日常](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2018-03-12.jpg "天通苑北日常（2018-03-12）")
 ![长城回望](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2018-08-18.jpg "长城回望（2018-08-18）")
 {% endgp %}
+
+*****************************************************
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=530 height=110 src="//music.163.com/outchain/player?type=0&id=2321983233&auto=1&height=90"></iframe>
