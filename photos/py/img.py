@@ -22,8 +22,7 @@ def main():
     for files in glob.glob(in_dir + '/*.jpg'):
         filepath, filename = os.path.split(files)
         im = Image.open(files)
-        w, h = im.size
-        im = im.resize((int(w), int(h)))
+        im = im.resize((1080, 810))
         im.save(os.path.join(out_dir, filename))
 
 
