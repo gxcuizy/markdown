@@ -55,6 +55,8 @@ copyright:
 
 {% gp 9-7 %}
 ![毛主席纪念馆](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2018-08-19.jpg "毛主席纪念馆（2018-08-19）")
+![珠海渔女](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2018-10-03.jpg "珠海渔女（2018-10-03）")
+![广州塔](https://raw.githubusercontent.com/gxcuizy/markdown/master/photos/2018-10-04.jpg "广州塔（2018-10-04）")
 {% endgp %}
 
 *****************************************************
