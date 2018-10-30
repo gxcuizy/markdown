@@ -44,4 +44,4 @@ tags: [Python, MySQL, JSON]
 [requests_url]: http://docs.python-requests.org/zh_CN/latest/user/quickstart.html
 [bs4_url]: https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.zh.html
 [json_url]: https://docs.python.org/3.6/library/json.html
-[code_url]: https://github.com/gxcuizy/Python/tree/master/area
+[code_url]: https://github.com/gxcuizy/Python/tree/master/%E7%9C%81%E5%B8%82%E5%8C%BA%E4%B8%89%E7%BA%A7%E5%9C%B0%E5%9D%80%E5%BA%93
