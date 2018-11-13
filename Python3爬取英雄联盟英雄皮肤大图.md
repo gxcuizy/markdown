@@ -36,8 +36,8 @@
 
 ### 运行环境
 
-Python运行环境：python3.6
-用到的模块：requests、json、urllib、os、lxml
+Python运行环境：python3.6  
+用到的模块：requests、json、urllib、os、lxml  
 未安装的模块，请使用pip instatll进行安装，例如：pip install requests
 
 ### 完整代码
