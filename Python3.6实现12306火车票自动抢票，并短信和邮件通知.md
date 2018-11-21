@@ -408,5 +408,5 @@ if __name__ == '__main__':
   [3]: https://image-static.segmentfault.com/394/808/3948089187-5b11019115486_articlex
   [4]: https://image-static.segmentfault.com/374/287/3742879033-5b1101d53c77f_articlex
   [5]: http://www.ihuyi.com/
-  [qiangpiao_url]: https://github.com/gxcuizy/Python/tree/master/12306qiangpiao
+  [qiangpiao_url]: https://github.com/gxcuizy/Python/tree/master/12306%E6%8A%A2%E7%A5%A8
   [new_qiangpiao_url]: https://github.com/gxcuizy/Python/blob/master/12306%E6%8A%A2%E7%A5%A8/new_qiangpiao.py
