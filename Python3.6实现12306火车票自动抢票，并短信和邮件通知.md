@@ -394,7 +394,7 @@ if __name__ == '__main__':
 ```
 
 另外，该脚本，我也放到了GitHub上面，有兴趣的可以前往查看。  
-源码地址：[https://github.com/gxcuizy/Python/tree/master/12306qiangpiao][qiangpiao_url]
+源码地址：[https://github.com/gxcuizy/Python/tree/master/12306抢票][qiangpiao_url]
 
 ### 12306官网改版
 
