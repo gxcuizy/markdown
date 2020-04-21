@@ -4,7 +4,7 @@ date: 2020-04-21 13:58:19
 tags: [PHP, 程序员]
 ---
 
-![](https://user-gold-cdn.xitu.io/2020/4/21/1719ad7967ba2008?w=768&h=225&f=png&s=149605)
+![](http://ww1.sinaimg.cn/large/b904e79dgy1ge1g75znnfj20lc06942a.jpg)
 
 ### 安装ThinkPHP
 
