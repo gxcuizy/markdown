@@ -4,7 +4,7 @@ date: 2020-04-21 13:58:19
 tags: [PHP, 程序员]
 ---
 
-![](http://ww1.sinaimg.cn/large/b904e79dgy1ge1g75znnfj20lc06942a.jpg)
+![](https://image-static.segmentfault.com/184/515/1845150031-5ea145cc3fcfb_articlex)
 
 ### 安装ThinkPHP
 
