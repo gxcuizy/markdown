@@ -43,6 +43,20 @@ Python运行环境：Windows + python3.6
 - 修改代码的完整源码：[data_dict_config.py](https://github.com/gxcuizy/Python/blob/master/%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E5%AD%97%E5%85%B8%E7%9A%84markdown%E6%96%87%E6%9C%AC/data_dict_config.py)
 - 手动输入的完整源码：[data_dict_input.py](https://github.com/gxcuizy/Python/blob/master/%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E5%AD%97%E5%85%B8%E7%9A%84markdown%E6%96%87%E6%9C%AC/data_dict_input.py)
 
+### 执行效果图
+
+执行**data_dict_config.py**脚本的时候，交互效果如下
+
+![](https://image-static.segmentfault.com/248/369/2483698320-5eb3674e73ae9_articlex)
+
+执行**data_dict_input.py**脚本的时候，交互效果如下
+
+![](https://image-static.segmentfault.com/546/830/546830567-5eb36718e03d5_articlex)
+
+执行完脚本后，会在当前目录下，生成一个`mysql_dict`文件夹，打开文件夹，里面的`.md`格式的文件就是每个表的`markdown`文本的表格写法，拷贝里面的文本到任何支持`mardkwon`地方就可以使用和查看，例如我放到有道云笔记上，部分效果如下
+
+![](https://image-static.segmentfault.com/298/884/2988844002-5eb367ebd5f05_articlex)
+
 ### 生成可执行文件
 
 为了方便不同的人群方便快速的使用，可以不用安装Python环境来执行py脚本文件，我把相关脚本打包成Windows可直接执行的exe文件，下载双击运行即可（可能有的系统需要管理员权限运行），打包的方式很简单，就是利用`pyinstaller`模块进行快速打包，省时省力，具体更多用法大家可以网上查一下。
