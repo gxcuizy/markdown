@@ -65,4 +65,10 @@ copyright:
 ![上沙闲逛](https://image-static.segmentfault.com/404/665/4046658327-5d539f5e56fcf_articlex "上沙闲逛（2019-08-11）")
 {% endgp %}
 
+{% gp 9-7 %}
+![广东清远之行](https://image-static.segmentfault.com/242/170/2421704560-5ebca0ad72e58_articlex "广东清远之行（2019-10-19）")
+![深圳湾公园晨跑](https://image-static.segmentfault.com/277/350/2773503638-5ebc9f9e1fd59_articlex "深圳湾公园晨跑（2020-03-14）")
+![往后一路有你](https://image-static.segmentfault.com/280/545/2805457327-5ebca2da964a4_articlex "往后一路有你（2020-05-02）")
+{% endgp %}
+
 *****************************************************
