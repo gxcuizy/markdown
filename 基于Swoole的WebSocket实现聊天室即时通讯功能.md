@@ -32,6 +32,23 @@ tags: [PHP, Swoole, 聊天室, WebSocket, 即时通讯]
 - onMessage：监听WebSocket消息事件
 - onClose：监听WebSocket连接关闭事件
 
+#### 建立MySQL数据表
+
+这里我们主要新建一个表就行了，这里，我们是新建一个数据库名为`chat`，然后再新建一个聊天用户表`chat_user`，建表SQL语句如下
+
+```sql
+CREATE TABLE `chat_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `fd` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '推送ID',
+  `user_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '用户名',
+  `avatar` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '头像',
+  `online_status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '在线状态：0离线，1在线',
+  `add_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '注册时间',
+  `update_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+```
+
 #### onOpen监听WebSocket连接打开
 
 新用户开启一个WebSocket连接，都会走`onOpen`事件，我根据官方的例子简单封装一下，用户创建连接后，用户信息存入`MySQL`数据库中，并且通知其他在线用户。对了，提醒一下，这里用到了`MySQL`，如果没有安装的，请先安装相关扩展。
