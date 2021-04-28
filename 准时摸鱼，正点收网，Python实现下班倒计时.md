@@ -1,212 +1,245 @@
 ---
-title: 活动链接再也不用转发朋友圈集赞了-python刷赞
-date: 2021-03-26 15:28:19
-tags: [Python, requests, bs4]
+title: 准时摸鱼，正点收网，Python实现下班倒计时
+date: 2021-04-27 13:33:18
+tags: [Python, time, tkinter]
 ---
 
-![](https://image-static.segmentfault.com/756/069/756069993-605d8c625e967_fix732)
+![](https://image-static.segmentfault.com/133/066/1330665599-6087ad58e3dab_fix732)
 
-### 你有没有让人帮忙点过赞呢
+### 你有过摸鱼时间吗
 
-我们的微信朋友圈，可能会经常遇到有朋友转发链接让进入帮忙点赞的，有的需要微信登陆点赞，有的直接无需登录即可点赞，有的活动链接可能还只限在微信内打开等等，类似这种集赞的活动，其实我们都是可以刷的，不用费半天劲每天各种转发朋友圈和微信群求赞了，轻轻松松可以搞定。
+在互联网圈子里，常常说996上班制，但是也不乏965的，更甚有007的，而007则就有点ICU的感觉了，所以，大家都会忙里偷闲，偶尔摸摸鱼，摸鱼的方式多种多样的，你有过上班摸鱼吗？你的摸鱼时间都干了些什么呢？如果你早早的完成了当天的任务，坐等下班的感觉是不是很爽呢？我想说这时间还是很难熬的，还不如找点事情做来得快呢，那做点什么呢？写个下班倒计时吧，就这么愉快的决定了……
 
-### 刷赞思路
+### 实现思路
 
-活动肯定都是以网页的形式去分享转发的，那么我们就可以拿到活动地址，以及通过`fildder`工具抓取点赞的相关接口，然后通过代理IP请求点赞接口即可，具体的还得看活动的接口规则，大概稍加调整即可。
+倒计时的时间刷新，肯定得需要图形界面，也就是需要GUI编程，这里我用的是`tkinter`实现本地窗口的界面，使用`tkinter`可以实现页面布局以及时间的定时刷新显示，而涉及到时间的操作，肯定少不了要用到`time`模块，这里我还加入了倒计时结束自动关机的功能（注释了的，有需要可以打开），所以还用到了`os`模块的`system`实现定时关机功能。
 
 <!--more-->
 
 ### 运行环境
 
-Python运行环境：Windows + python3.8   
-用到的模块：`requests、bs4、time、multiprocessing`  
-如未安装的模块，请使用`pip instatll xxxxxx`进行安装，例如：`pip install requests`
+Python运行环境：Windows + python3.8  
+用到的模块：`tkinter、time、os`  
+如未安装的模块，请使用`pip instatll xxxxxx`进行安装，例如：`pip install tkinter`
 
-### 抓取
+### 界面布局
 
-通过电脑端在`fillder`工具上抓取到点赞接口，然后拿到接口地址、请求参数以及一些header头信息，下面是我抓取的一个活动的点赞接口相关信息（为了隐私信息，地址和参数信息都是虚假的，大家主要看这个思路就可以了）
+先来看一下实现后的界面
+
+![](https://image-static.segmentfault.com/290/230/2902306930-6087a759b7406_fix732)
+
+从截图中可以看到，主要有三个信息：
+
+- 当前时间：这个是实时显示当前时间，格式为格式化的年月日时分秒
+- 下班时间：这个可以修改的，默认是`18:00:00`，可以根据自己的下班时间来修改
+- 剩余时间：这里是倒计时的剩余时间，点`START`后每秒刷新
 
 ```python
-def __init__(self):
-    # 继承Process类
-    super(XiaoHuanProcess, self).__init__()
-    # 点赞接口地址
-    self.api_url = 'http://www.xxxxxx.com/topfirst.php?g=Wap&m=Vote&a=ticket'
-    # 点赞请求参数
-    self.post_param = {'zid': '111', 'vid': '111', 'token': '111'}
-    # 接口请求头信息
-    self.header = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36 QBCore/4.0.1320.400 QQBrowser/9.0.2524.400 Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2875.116 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63010200)',
-        'Content-Type': 'application/x-www-form-urlencoded'
-    }
-    # 代理IP地址
-    self.proxies = {}
-    # 超时时间
-    self.time_out = 20
+# 设置页面数据
+tk_obj = Tk()
+tk_obj.geometry('400x280')
+tk_obj.resizable(0, 0)
+tk_obj.config(bg='white')
+tk_obj.title('倒计时应用')
+Label(tk_obj, text='下班倒计时', font='宋体 20 bold', bg='white').pack()
+# 设置当前时间
+Label(tk_obj, font='宋体 15 bold', text='当前时间：', bg='white').place(x=50, y=60)
+curr_time = Label(tk_obj, font='宋体 15', text='', fg='gray25', bg='white')
+curr_time.place(x=160, y=60)
+refresh_current_time()
+# 设置下班时间
+Label(tk_obj, font='宋体 15 bold', text='下班时间：', bg='white').place(x=50, y=110)
+# 下班时间-小时
+work_hour = StringVar()
+Entry(tk_obj, textvariable=work_hour, width=2, font='宋体 12').place(x=160, y=115)
+work_hour.set('18')
+# 下班时间-分钟
+work_minute = StringVar()
+Entry(tk_obj, textvariable=work_minute, width=2, font='宋体 12').place(x=185, y=115)
+work_minute.set('00')
+# 下班时间-秒数
+work_second = StringVar()
+Entry(tk_obj, textvariable=work_second, width=2, font='宋体 12').place(x=210, y=115)
+work_second.set('00')
+# 设置剩余时间
+Label(tk_obj, font='宋体 15 bold', text='剩余时间：', bg='white').place(x=50, y=160)
+down_label = Label(tk_obj, font='宋体 23', text='', fg='gray25', bg='white')
+down_label.place(x=160, y=155)
+down_label.config(text='00时00分00秒')
+# 开始计时按钮
+Button(tk_obj, text='START', bd='5', command=refresh_down_time, bg='green', font='宋体 10 bold').place(x=150, y=220)
+tk_obj.mainloop()
 ```
 
-### 抓取代理IP
+### 定时刷新剩余时间
 
-因为总是用同一个用户去请求，肯定是不行的，所以，我们就得需要用代理IP去请求，那么就得抓取网上一些可用的IP地址，这里，我随便例举一个代理网站（[https://ip.jiangxianli.com](https://ip.jiangxianli.com)），因为我测试过，这个网站的IP有效性比较高，而且IP地址更新也比较快，具体抓取代码如下：
+通过获取设置的下班时间，对比当前时间的时间差，从而得到剩余时间，再用`while`每秒循环处理剩余时间，并实时刷新到界面上，直至剩余时间为0程序才会结束，甚至操作电脑自动关机的功能。
 
 ```python
-def get_proxies_ip(self, ip_url):
-    """获取代理IP"""
-    ip_request = requests.get(url=ip_url)
-    html_content = ip_request.content
-    soup = BeautifulSoup(html_content, 'html.parser')
-    # IP列表
-    link_list = soup.select('link')
-    is_start = False
-    ip_list = []
-    for link in link_list:
-        url_info = link.get('href')
-        if url_info == '//github.com':
-            is_start = True
-        if url_info == '//www.baidu.com':
+def refresh_down_time():
+    """刷新倒计时时间"""
+    # 当前时间戳
+    now_time = int(time.time())
+    # 下班时间时分秒数据过滤
+    work_hour_val = int(work_hour.get())
+    if work_hour_val > 23:
+        down_label.config(text='小时的区间为（00-23）')
+        return
+    work_minute_val = int(work_minute.get())
+    if work_minute_val > 59:
+        down_label.config(text='分钟的区间为（00-59）')
+        return
+    work_second_val = int(work_second.get())
+    if work_second_val > 59:
+        down_label.config(text='秒数的区间为（00-59）')
+        return
+    # 下班时间转为时间戳
+    work_date = str(work_hour_val) + ':' + str(work_minute_val) + ':' + str(work_second_val)
+    work_str_time = time.strftime('%Y-%m-%d ') + work_date
+    time_array = time.strptime(work_str_time, "%Y-%m-%d %H:%M:%S")
+    work_time = time.mktime(time_array)
+    if now_time > work_time:
+        down_label.config(text='已过下班时间')
+        return
+    # 距离下班时间剩余秒数
+    diff_time = int(work_time - now_time)
+    while diff_time > -1:
+        # 获取倒计时-时分秒
+        down_minute = diff_time // 60
+        down_second = diff_time % 60
+        down_hour = 0
+        if down_minute > 60:
+            down_hour = down_minute // 60
+            down_minute = down_minute % 60
+        # 刷新倒计时时间
+        down_time = str(down_hour).zfill(2) + '时' + str(down_minute).zfill(2) + '分' + str(down_second).zfill(2) + '秒'
+        down_label.config(text=down_time)
+        tk_obj.update()
+        time.sleep(1)
+        if diff_time == 0:
+            # 倒计时结束
+            down_label.config(text='已到下班时间')
+            # 自动关机，定时一分钟关机，可以取消
+            # down_label.config(text='下一分钟将自动关机')
+            # os.system('shutdown -s -f -t 60')
             break
-        if is_start and url_info != '//github.com':
-            ip_list.append(url_info)
-    return ip_list
-```
-
-### 执行循环刷赞请求
-
-![](https://image-static.segmentfault.com/422/337/4223378182-605d87eb89575_fix732)
-
-已经有了点赞接口地址，而且代理IP也抓取到了，那么就可以利用代理IP去请求点赞接口，从而实现刷赞的目的。
-
-```python
-def run(self):
-    """执行程序"""
-    while True:
-        # 获取前11页
-        page_list = range(1, 11)
-        for page in page_list:
-            request_url = 'https://ip.jiangxianli.com/?page=' + str(page)
-            # 获取IP地址
-            ip_list = self.get_proxies_ip(request_url)
-            for ip_info in ip_list:
-                self.proxies = {
-                    'http': 'http:' + ip_info,
-                    'https': 'https:' + ip_info
-                }
-                try:
-                    # 发送post请求
-                    request = requests.post(url=self.api_url, data=self.post_param, headers=self.header,
-                                            proxies=self.proxies, timeout=self.time_out)
-                    response_text = request.text
-                    self.print_msg(response_text)
-                except Exception as err_info:
-                    # 异常信息
-                    self.print_msg(str(err_info))
+        diff_time -= 1
 ```
 
 ### 完整代码
 
-因为刷赞的过程就是多请求，所以，我们可以利用`multiprocessing`多进程去刷，从而更有效的达到目的，具体的可以看下完整代码即可，更多的可以去交友网站[https://github.com/gxcuizy](https://github.com/gxcuizy/Python/tree/master/%E5%BE%AE%E4%BF%A1%E7%82%B9%E8%B5%9E%E5%88%B7%E7%A5%A8)上面找我哦，我也写了其他代理网站的更多示例，走过路过去看看哦，不会吃亏的。
+为了方便大家测试和顺利摸鱼，我把完整的倒计时程序也贴出来，大家有什么问题也可以及时反馈，想要了解更多的可以去交友网站[https://github.com/gxcuizy](https://github.com/gxcuizy/Python/tree/master/%E4%B8%8B%E7%8F%AD%E5%80%92%E8%AE%A1%E6%97%B6)上面找我哦
 
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """
-利用代理IP刷点赞票（jiangxianli-多线程）
+距离下班时间倒计时
 author: gxcuizy
-date: 2021-03-25
+date: 2021-04-27
 """
 
-import requests
+from tkinter import *
 import time
-from bs4 import BeautifulSoup
-from multiprocessing import Process
+import os
 
 
-class JiangXianLiProcess(Process):
-    def __init__(self):
-        # 继承Process类
-        super(JiangXianLiProcess, self).__init__()
-        # 点赞接口地址
-	    self.api_url = 'http://www.xxxxxx.com/topfirst.php?g=Wap&m=Vote&a=ticket'
-	    # 点赞请求参数
-	    self.post_param = {'zid': '111', 'vid': '111', 'token': '111'}
-        # 接口请求头信息
-        self.header = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36 QBCore/4.0.1320.400 QQBrowser/9.0.2524.400 Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2875.116 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63010200)',
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
-        # 代理IP地址
-        self.proxies = {}
-        # 超时时间
-        self.time_out = 20
+def refresh_current_time():
+    """刷新当前时间"""
+    clock_time = time.strftime('%Y-%m-%d %H:%M:%S')
+    curr_time.config(text=clock_time)
+    curr_time.after(1000, refresh_current_time)
 
-    def get_proxies_ip(self, ip_url):
-        """获取代理IP"""
-        ip_request = requests.get(url=ip_url)
-        html_content = ip_request.content
-        soup = BeautifulSoup(html_content, 'html.parser')
-        # IP列表
-        link_list = soup.select('link')
-        is_start = False
-        ip_list = []
-        for link in link_list:
-            url_info = link.get('href')
-            if url_info == '//github.com':
-                is_start = True
-            if url_info == '//www.baidu.com':
-                break
-            if is_start and url_info != '//github.com':
-                ip_list.append(url_info)
-        return ip_list
 
-    def print_msg(self, msg=''):
-        """打印信息"""
-        now_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-        print('[' + now_time + '] ' + msg)
-
-    def run(self):
-        """执行程序"""
-        while True:
-            # 获取前11页
-            page_list = range(1, 11)
-            for page in page_list:
-                request_url = 'https://ip.jiangxianli.com/?page=' + str(page)
-                # 获取IP地址
-                ip_list = self.get_proxies_ip(request_url)
-                for ip_info in ip_list:
-                    self.proxies = {
-                        'http': 'http:' + ip_info,
-                        'https': 'https:' + ip_info
-                    }
-                    try:
-                        # 发送post请求
-                        request = requests.post(url=self.api_url, data=self.post_param, headers=self.header,
-                                                proxies=self.proxies, timeout=self.time_out)
-                        response_text = request.text
-                        self.print_msg(response_text)
-                    except Exception as err_info:
-                        # 异常信息
-                        self.print_msg(str(err_info))
+def refresh_down_time():
+    """刷新倒计时时间"""
+    # 当前时间戳
+    now_time = int(time.time())
+    # 下班时间时分秒数据过滤
+    work_hour_val = int(work_hour.get())
+    if work_hour_val > 23:
+        down_label.config(text='小时的区间为（00-23）')
+        return
+    work_minute_val = int(work_minute.get())
+    if work_minute_val > 59:
+        down_label.config(text='分钟的区间为（00-59）')
+        return
+    work_second_val = int(work_second.get())
+    if work_second_val > 59:
+        down_label.config(text='秒数的区间为（00-59）')
+        return
+    # 下班时间转为时间戳
+    work_date = str(work_hour_val) + ':' + str(work_minute_val) + ':' + str(work_second_val)
+    work_str_time = time.strftime('%Y-%m-%d ') + work_date
+    time_array = time.strptime(work_str_time, "%Y-%m-%d %H:%M:%S")
+    work_time = time.mktime(time_array)
+    if now_time > work_time:
+        down_label.config(text='已过下班时间')
+        return
+    # 距离下班时间剩余秒数
+    diff_time = int(work_time - now_time)
+    while diff_time > -1:
+        # 获取倒计时-时分秒
+        down_minute = diff_time // 60
+        down_second = diff_time % 60
+        down_hour = 0
+        if down_minute > 60:
+            down_hour = down_minute // 60
+            down_minute = down_minute % 60
+        # 刷新倒计时时间
+        down_time = str(down_hour).zfill(2) + '时' + str(down_minute).zfill(2) + '分' + str(down_second).zfill(2) + '秒'
+        down_label.config(text=down_time)
+        tk_obj.update()
+        time.sleep(1)
+        if diff_time == 0:
+            # 倒计时结束
+            down_label.config(text='已到下班时间')
+            # 自动关机，定时一分钟关机，可以取消
+            # down_label.config(text='下一分钟将自动关机')
+            # os.system('shutdown -s -f -t 60')
+            break
+        diff_time -= 1
 
 
 # 程序主入口
-if __name__ == '__main__':
-    # 获取运行的进程数
-    process_num = input('请输入运行进程数：')
-    process_list = []
-    for i in range(int(process_num)):
-        p = JiangXianLiProcess()
-        # star默认执行run()方法
-        p.start()
-        process_list.append(p)
-    # 循环执行多进程
-    for process in process_list:
-        process.join()
-        # 每个进程间隔10秒执行
-        time.sleep(10)
-
+if __name__ == "__main__":
+    # 设置页面数据
+    tk_obj = Tk()
+    tk_obj.geometry('400x280')
+    tk_obj.resizable(0, 0)
+    tk_obj.config(bg='white')
+    tk_obj.title('倒计时应用')
+    Label(tk_obj, text='下班倒计时', font='宋体 20 bold', bg='white').pack()
+    # 设置当前时间
+    Label(tk_obj, font='宋体 15 bold', text='当前时间：', bg='white').place(x=50, y=60)
+    curr_time = Label(tk_obj, font='宋体 15', text='', fg='gray25', bg='white')
+    curr_time.place(x=160, y=60)
+    refresh_current_time()
+    # 设置下班时间
+    Label(tk_obj, font='宋体 15 bold', text='下班时间：', bg='white').place(x=50, y=110)
+    # 下班时间-小时
+    work_hour = StringVar()
+    Entry(tk_obj, textvariable=work_hour, width=2, font='宋体 12').place(x=160, y=115)
+    work_hour.set('18')
+    # 下班时间-分钟
+    work_minute = StringVar()
+    Entry(tk_obj, textvariable=work_minute, width=2, font='宋体 12').place(x=185, y=115)
+    work_minute.set('00')
+    # 下班时间-秒数
+    work_second = StringVar()
+    Entry(tk_obj, textvariable=work_second, width=2, font='宋体 12').place(x=210, y=115)
+    work_second.set('00')
+    # 设置剩余时间
+    Label(tk_obj, font='宋体 15 bold', text='剩余时间：', bg='white').place(x=50, y=160)
+    down_label = Label(tk_obj, font='宋体 23', text='', fg='gray25', bg='white')
+    down_label.place(x=160, y=155)
+    down_label.config(text='00时00分00秒')
+    # 开始计时按钮
+    Button(tk_obj, text='START', bd='5', command=refresh_down_time, bg='green', font='宋体 10 bold').place(x=150, y=220)
+    tk_obj.mainloop()
 ```
 
 ### 最后
 
-大家有任何问题，都可以给我留言给我，我会及时回复，如有说的不对的地方，还请大家帮忙纠正。如果大家有什么好的想法或者建议，也可以底部留言给我哈，感谢哦！
+大家有任何问题，都可以给我留言给我，我会及时回复，如有说的不对的地方，还请大家帮忙纠正。如果大家有什么好玩的摸鱼办法，也可以底部留言给我哈，大家一起愉快的摸鱼！
