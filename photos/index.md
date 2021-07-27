@@ -68,7 +68,13 @@ copyright:
 {% gp 9-7 %}
 ![广东清远之行](https://image-static.segmentfault.com/242/170/2421704560-5ebca0ad72e58_articlex "广东清远之行（2019-10-19）")
 ![深圳湾公园晨跑](https://image-static.segmentfault.com/277/350/2773503638-5ebc9f9e1fd59_articlex "深圳湾公园晨跑（2020-03-14）")
-![往后一路有你](https://image-static.segmentfault.com/280/545/2805457327-5ebca2da964a4_articlex "往后一路有你（2020-05-02）")
+![巽寮湾海滩夜景](https://image-static.segmentfault.com/247/365/24736562-60ff6321bb600_fix732 "巽寮湾海滩夜景（2020-07-04）")
+![马路边的夜跑](https://image-static.segmentfault.com/312/673/3126733351-60ff6354d3452_fix732 "马路边的夜跑（2020-10-17）")
+![下班的路上](https://image-static.segmentfault.com/119/712/1197120374-60ff63b70fbcf_fix732 "下班的路上（2020-12-22）")
+![柳江边的音乐喷泉](https://image-static.segmentfault.com/300/948/3009481874-60ff63f5982ce_fix732 "柳江边的音乐喷泉（2021-01-04）")
+![登顶塘朗山](https://image-static.segmentfault.com/372/462/3724621210-60ff642d1e546_fix732 "登顶塘朗山（2020-01-23）")
+![钦州线下活动](https://image-static.segmentfault.com/910/789/91078970-60ff6706cfb8c_fix732 "钦州线下活动（2020-04-18）")
+![小梅沙的雨后彩虹](https://image-static.segmentfault.com/343/264/3432644167-60ff64918c24e_fix732 "小梅沙的雨后彩虹（2021-07-24）")
 {% endgp %}
 
 *****************************************************
