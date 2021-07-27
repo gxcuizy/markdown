@@ -13,7 +13,7 @@ copyright:
 ![下班天桥上](https://image-static.segmentfault.com/635/532/635532414-5d538022bbcb9_articlex "下班天桥上（2015-12-04）")
 ![滑雪场](https://image-static.segmentfault.com/250/649/2506497216-5d53808f741f4_articlex "滑雪场（2015-12-13）")
 ![大学宿舍聚](https://image-static.segmentfault.com/225/205/2252058758-5d5380a8a7bb9_articlex "大学宿舍聚（2015-12-28）")
-![老乡会](https://image-static.segmentfault.com/426/132/4261327360-5d5380c0e2367_articlex "老乡会（2016-01-01）")
+![广西老乡会](https://image-static.segmentfault.com/426/132/4261327360-5d5380c0e2367_articlex "广西老乡会（2016-01-01）")
 ![毕业典礼现场](https://image-static.segmentfault.com/381/825/3818250641-5d5380f806575_articlex "毕业典礼现场（2016-06-27）")
 {% endgp %}
 
@@ -25,7 +25,7 @@ copyright:
 ![北京的蓝天白云](https://image-static.segmentfault.com/246/647/2466474727-5d53816b30da3_articlex "北京的蓝天白云（2016-08-25）")
 ![回龙观东大街的傍晚](https://image-static.segmentfault.com/323/043/3230433437-5d5381802ca29_articlex "回龙观东大街的傍晚（2016-09-03）")
 ![中国新歌声现场](https://image-static.segmentfault.com/151/088/151088108-5d53819544324_articlex "中国新歌声现场（2016-10-07）")
-![偶遇马拉车](https://image-static.segmentfault.com/900/515/900515516-5d5381b7e9ff0_articlex "偶遇马拉车（2016-10-30）")
+![北京街头的马拉车](https://image-static.segmentfault.com/900/515/900515516-5d5381b7e9ff0_articlex "北京街头的马拉车（2016-10-30）")
 ![CBA全明星赛](https://image-static.segmentfault.com/134/182/1341823598-5d5381cce9e07_articlex "CBA全明星赛（2017-01-08）")
 {% endgp %}
 
